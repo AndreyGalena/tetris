@@ -1,3 +1,38 @@
+// Модуль определения устройства.
+let detect = new MobileDetect(window.navigator.userAgent);
+// snake.os = detect.os();
+
+// Мобилка или компьютер.
+if (detect.mobile()) {
+    mobileButtons(detect);
+} else {
+    // Обработчик событий на компьютере.
+    document.addEventListener('keydown', keyDown);
+}
+
+// Если на мобильном
+function mobileButtons(detect) {
+    // добавить кнопки.
+    let blockButton = document.querySelector(".blockButton");
+    blockButton.style.display = "block";
+    // Обработка событий на мобильном устройстве.
+    blockButton.addEventListener("click", mobilClick);
+}
+
+function mobilClick(event) {
+    let element = event.target;
+    // если такой класс в объекте есть
+    if (element.classList.contains("arrowImgUp")) {
+        playerRotate();
+    } else if (element.classList.contains("arrowImgDown")) {
+        playerDrop();
+    } else if (element.classList.contains("arrowImgLeft")) {
+        playerMove(-1)
+    } else if (element.classList.contains("arrowImgRight")) {
+        playerMove(1);
+    }
+}
+
 // Получаем канвасы и масштабируем
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -301,7 +336,20 @@ function update(time = 0) {
 }
 
 // Обработка клавиш
-document.addEventListener('keydown', event => {
+// document.addEventListener('keydown', event => {
+//     if (event.key === 'p' || event.key === 'з') {
+//         isPaused = !isPaused;
+//         if (!isPaused) lastTime = performance.now();
+//     }
+
+//     if (!isPaused) {
+//         if (event.key === 'ArrowLeft') playerMove(-1);
+//         else if (event.key === 'ArrowRight') playerMove(1);
+//         else if (event.key === 'ArrowDown') playerDrop();
+//         else if (event.key === 'ArrowUp') playerRotate();
+//     }
+// });
+function keyDown(event) {
     if (event.key === 'p' || event.key === 'з') {
         isPaused = !isPaused;
         if (!isPaused) lastTime = performance.now();
@@ -313,7 +361,7 @@ document.addEventListener('keydown', event => {
         else if (event.key === 'ArrowDown') playerDrop();
         else if (event.key === 'ArrowUp') playerRotate();
     }
-});
+}
 
 // Запуск игры
 playerReset();

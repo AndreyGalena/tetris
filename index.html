@@ -2,47 +2,65 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Тетрис на JavaScript</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Тетрис на JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Библиотека для определения устройства -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
 </head>
 
 <body>
-  <h1 style="text-align: center; color: white;">Тетрис</h1>
+    <h1 style="text-align: center; color: white;">Тетрис</h1>
 
-  <div class="layout">
-    <!-- Левая панель: следующая фигура -->
-    <div class="preview-panel">
-      <h4>Следующая фигура</h4>
-      <canvas id="preview" width="180" height="120"></canvas>
+    <div class="layout">
+        <!-- Левая панель: следующая фигура -->
+        <div class="preview-panel">
+            <h4>Следующая фигура</h4>
+            <canvas id="preview" width="180" height="120"></canvas>
 
-      <div class="scoreboard">
-        <p>Очки: <span id="score">0</span></p>
-        <p>Уровень: <span id="level">1</span></p>
-      </div>
+            <div class="scoreboard">
+                <p>Очки: <span id="score">0</span></p>
+                <p>Уровень: <span id="level">1</span></p>
+            </div>
+        </div>
+
+
+        <!-- Центральная панель: игровое поле -->
+        <div class="game-panel">
+            <canvas id="tetris" width="360" height="600"></canvas>
+            <div class="blockButton">
+                <div id="up">
+                    <img class="arrowImg arrowImgUp" src="./arrow/arrow_Up.png" alt="Up">
+                </div>
+                <div id="down">
+                    <img class="arrowImg arrowImgDown" src="./arrow/arrow_Down.png" alt="Down">
+                </div>
+                <div id="left">
+                    <img class="arrowImg arrowImgLeft" src="./arrow/arrow_Left.png" alt="Left">
+                </div>
+                <div id="right">
+                    <img class="arrowImg arrowImgRight" src="./arrow/arrow_Right.png" alt="Right">
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая панель: управление -->
+        <div class="controls-panel">
+            <h3>Управление</h3>
+            <ul>
+                <li>⬅️ ← — влево</li>
+                <li>➡️ → — вправо</li>
+                <li>⬇️ ↓ — вниз</li>
+                <li>🔄 ↑ — вращение</li>
+                <li>⏸ P — пауза</li>
+            </ul>
+            <img src="./arrow/sound_img.png" alt="icon" class="sound-img">
+        </div>
+
     </div>
 
 
-    <!-- Центральная панель: игровое поле -->
-    <div class="game-panel">
-      <canvas id="tetris" width="360" height="600"></canvas>
-    </div>
-
-    <!-- Правая панель: управление -->
-    <div class="controls-panel">
-      <h3>Управление</h3>
-      <ul>
-        <li>⬅️ ← — влево</li>
-        <li>➡️ → — вправо</li>
-        <li>⬇️ ↓ — вниз</li>
-        <li>🔄 ↑ — вращение</li>
-        <li>⏸ P — пауза</li>
-      </ul>
-      <img src="./arrow/sound_img.png" alt="icon" class="sound-img">
-    </div>
-  </div>
-
-  <script src="tetris.js"></script>
+    <script src="tetris.js"></script>
 </body>
 
 </html>
