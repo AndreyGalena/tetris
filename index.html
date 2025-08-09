@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Тетрис на JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1 style="text-align: center; color: white;">Тетрис</h1>
+
+  <div class="layout">
+    <!-- Левая панель: следующая фигура -->
+    <div class="preview-panel">
+      <h4>Следующая фигура</h4>
+      <canvas id="preview" width="180" height="120"></canvas>
+
+      <div class="scoreboard">
+        <p>Очки: <span id="score">0</span></p>
+        <p>Уровень: <span id="level">1</span></p>
+      </div>
+    </div>
+
+
+    <!-- Центральная панель: игровое поле -->
+    <div class="game-panel">
+      <canvas id="tetris" width="360" height="600"></canvas>
+      <script src="tetris.js"></script>
+    </div>
+
+    <!-- Правая панель: управление -->
+    <div class="controls-panel">
+      <h3>Управление</h3>
+      <ul>
+        <li>⬅️ ← — влево</li>
+        <li>➡️ → — вправо</li>
+        <li>⬇️ ↓ — вниз</li>
+        <li>🔄 ↑ — вращение</li>
+        <li>⏸ P — пауза</li>
+      </ul>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
