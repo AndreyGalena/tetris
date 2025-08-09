@@ -33,6 +33,16 @@ let lastTime = 0;
 // Флаг паузы
 let isPaused = false;
 
+/* ФОНОВАЯ МУЗЫКА */
+const soundImg = document.querySelector(".sound-img");
+
+soundImg.addEventListener('click', (event) => {
+    sound.play(); // проигрует звук.
+})
+const sound = new Audio("./music/music.mp3");
+// вкл. повтор
+sound.loop = true;
+
 // Создаёт пустую матрицу
 function createMatrix(w, h) {
     const matrix = [];
